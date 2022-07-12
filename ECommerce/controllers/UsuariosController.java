@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import GSport.ECommerce.Usuarios;
+import GSport.ECommerce.model.Usuarios;
 import GSport.ECommerce.servicios.UsuariosServicios;
 
 @RestController // importar este. 

@@ -1,4 +1,4 @@
-package GSport.ECommerce;
+package GSport.ECommerce.model;
 
 public class Usuarios {
 	private String Nombre; 
