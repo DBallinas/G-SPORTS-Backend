@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import GSport.ECommerce.Productos;
+import GSport.ECommerce.model.Productos;
 import GSport.ECommerce.servicios.ProductoServicios;
 @RestController // importar este. 
 @RequestMapping (path="/api/productos/")
 
-@CrossOrigin(origins="*")
+//@CrossOrigin(origins="*")
 public class ProductosController {
 		
 		private final ProductoServicios productoServicios; 
@@ -31,7 +31,7 @@ public class ProductosController {
 	}
 
 
-
+		//CRUD
 	@GetMapping
 	public List<Productos> getAllProductos()
 	{
@@ -58,14 +58,23 @@ public class ProductosController {
 	}//addProduct
 
 	@PutMapping (path="{prodId}")
-	public Productos updateProducto(@PathVariable("prodId")Long id,
-			@RequestParam(required=false)String nombre,
-			@RequestParam(required=false)String descripcion,
-			@RequestParam(required=false)String URL_imagen,
-			@RequestParam(required=false)double precio)
+	public Productos updateProducto(
+			@PathVariable("prodId")Long id,
+			@RequestParam(required=false)String idProducto,
+			@RequestParam(required=false)String idProveedores,
+			@RequestParam(required=false)String idCategorias,
+			@RequestParam(required=false)String NombreProducto,
+			@RequestParam(required=false)double PrecioUnidad,
+			@RequestParam(required=false)int UnidadesExistentes,
+			@RequestParam(required=false)String Descripción,
+			@RequestParam(required=false)String Marca,
+			@RequestParam(required=false)String URL_Imagen
+			)
 	//@Request Para que no me pida a la de fuerza todos los parametros. 
 			{
-				return productoServicios.updateProducto(id, nombre, descripcion,URL_imagen,precio);
+		return productoServicios.updateProducto(id, idProducto, idProveedores, idCategorias, NombreProducto, PrecioUnidad, UnidadesExistentes, Descripción, Marca, URL_Imagen);
 			}
+	
+	
 
 }//CalssControl

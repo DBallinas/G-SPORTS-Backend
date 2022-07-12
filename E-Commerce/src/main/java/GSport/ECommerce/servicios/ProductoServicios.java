@@ -1,90 +1,95 @@
 package GSport.ECommerce.servicios;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+//import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
 
-import GSport.ECommerce.Productos;
+import GSport.ECommerce.model.Productos;
 
 @Service
 public class ProductoServicios {
 	
-public final ArrayList<Productos>lista=new ArrayList<Productos>(); //Se crea la lista de los productos.
+//public final ArrayList<Productos>lista=new ArrayList<Productos>(); //Se crea la lista de los productos.
+	
+	private final ProductosRepositorio productosRepositorio;
 	
 	
 	//se intancia para cuando se levante el servidor se crea una instancia del servicio.
-	public ProductoServicios()
+	public ProductoServicios(ProductosRepositorio productosRepositorio)
 	{
 				
-		lista.add(new Productos("Polainas Wilson 4lbs Unisex",
-				"Diseñadas para amoldarse encima de los tobillos con comodidad.",
-				"PolainasRojas.jpg",459.0));
-		
-		lista.add(new Productos("Tenis Mujer Nike Tanjun",
-				"Tenis aerodimámicos super lijeros de alta calidad",
-				"TenisNikeMujer.jpg",1239.0));
-		
-		lista.add(new Productos("Xiaomi Mi Watch Negro",
-				"Pantalla: 1.39 Pulgadas, compatibile con Android 4.4 e IOS 10 o superior",
-				"WatchNegro.jpg",2800.0));
+		this.productosRepositorio=productosRepositorio;
 		
 	}//Constructor
 	
-	public ArrayList<Productos>getProductos()
+	public List<Productos>getProductos()
 	{
-		return lista;
+		return productosRepositorio.findAll();
 	}//getProductos
 	
 	public Productos getProducto(Long id)
 	{
-		Productos tmProduct=null;
-		for (Productos producto : lista)
-		{
-			if(producto.getId()==id)
-			{
-				tmProduct=producto;
-				break;
-			}//if
-		}//for
-		return tmProduct;
+		return productosRepositorio.findById(id).orElseThrow(
+				()-> new IllegalArgumentException("El producto con el id "+id+"no existe.")
+				);
 	}//get producto
 
 	public Productos deleteProducto(Long id) {
-		Productos tmProduct=null;
-		for (Productos producto : lista)
+		Productos tmProducto=null;
+		
+		if(productosRepositorio.existsById(id))
 		{
-			if(producto.getId()==id)
-			{
-				tmProduct=lista.remove(lista.indexOf(producto));
-				break;
-			}//if
-		}//for
-		return tmProduct;
-	}//deleteProduct
+			tmProducto=productosRepositorio.findById(id).get();
+			productosRepositorio.deleteById(id);
+		}//if Exist
+		return tmProducto;
+	}//deleteProducto
 	
 	public Productos addProducto(Productos producto)
 	{
-		lista.add(producto);
-		return producto;
+		Productos tmProducto=null;
+		Optional <Productos> prodByName=productosRepositorio.findByNombre(producto.getNombreProducto());
+		
+		if(prodByName.isPresent())
+		{
+			throw new IllegalArgumentException("El producto con el nombre ["+producto.getNombreProducto()+" ] ya existe");
+		}
+		else
+		{
+			productosRepositorio.save(producto);
+			tmProducto=producto;
+		}//else//if Present
+		return tmProducto;
 	}//addProducto
 	
-	public Productos updateProducto(Long id, String nombre, String descripcion,
-									String uRL_imagen, double precio)
+	public Productos updateProducto(Long id, String idproductos, String idproveedores, String idcategoria, 
+									String nombreproducto, double preciounidad, int unidadesexistentes, String descripción, String marca,String url_imagen)
 	{
-		Productos tmProduct=null;
-		for (Productos producto : lista) {
-			if(producto.getId()==id)
-			{
-				if(descripcion != null) {producto.setDescripcion(descripcion);}
-				if(uRL_imagen!=null) {producto.setURL_imagen(uRL_imagen);}
-				//no puede ser nulo porque es dooble 
-				if (precio>0) {producto.setPrecio(precio);}
-				tmProduct=producto;
-				break;
-			}//if
-			
-		}//for
-		return tmProduct;
+		Productos tmProducto=null;
+		if(productosRepositorio.existsById(id))
+		{
+			tmProducto=productosRepositorio.findById(id).get();
+			if(idproductos != null)tmProducto.setIdproductos(idproductos);
+			if(idproveedores !=null)tmProducto.setIdproveedores(idproveedores);
+			if(idcategoria!=null)tmProducto.setIdCategorias(idcategoria);
+			if(nombreproducto!=null)tmProducto.setNombreProducto(nombreproducto); 
+			//if(precio!=null)tmProducto.setPrecio(precio.doubleValue());
+			if(preciounidad<=0)tmProducto.setPrecioUnidad(preciounidad);
+			if(unidadesexistentes<=0)tmProducto.setUnidadesExistentes(unidadesexistentes);
+			if (descripción!=null)tmProducto.setDescripción(descripción);
+			if(marca!=null)tmProducto.setMarca(marca);
+			if(url_imagen!=null)tmProducto.setURL_Imagen(url_imagen);
+		
+			productosRepositorio.save(tmProducto);
+		}
+		else
+		{
+			System.out.println("El producto con el id:_ "+id+" no existe.");
+		}//else//if update
+		return tmProducto;
 	}//updateProduct
 	
 

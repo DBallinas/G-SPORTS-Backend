@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import GSport.ECommerce.Usuarios;
+import GSport.ECommerce.model.Usuarios;
 
 @Service
 public class UsuariosServicios {
