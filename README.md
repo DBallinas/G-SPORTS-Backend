@@ -1,4 +1,5 @@
 # G-SPORTS BACKEND
+### Este repositorio alberga la parte de backend de G-Sports, para ir al frontend ingresar a https://github.com/DBallinas/E-Commerce/tree/develop :)
 G-SPORTS Tienda de Artículos Deportivos
 G-SPORTS es un proyecto resultado con la finalidad de demostrar los conocimientos adquiridos durante nuestra estadía en Generation México. Decidimos realizar una E-Commerce, ya que actualmente es algo muy demandado en todos los negocios, la conversión digital es inevitable para lograr mayor presencia en el mercado cada vez más competitivo. G-SPORTS es una tienda de artículos deportivos donde encontrarás los mejores productos al mejor precio.
 

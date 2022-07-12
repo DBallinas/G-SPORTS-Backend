@@ -5,22 +5,22 @@ public class Usuarios {
 	private String APaterno;
 	private String AMarterno; 
 	private String Correo;
-	private String Contraseña;
+	private String contrase�a;
 	
 	public Usuarios(String nombre, String aPaterno, String aMarterno, String correo,
-			String contraseña) {
+			String contrase�a) {
 		super();
 		this.Nombre = nombre;
 		this.APaterno = aPaterno;
 		this.AMarterno = aMarterno;
 		this.Correo = correo;
-		this.Contraseña = contraseña;
+		this.contrase�a = contrase�a;
 	}
 	public Usuarios(String correo,
-			String contraseña) {
+			String contrase�a) {
 		super();
 		this.Correo = correo;
-		this.Contraseña = contraseña;
+		this.contrase�a = contrase�a;
 	}
 	
 	public Usuarios() {}
@@ -57,18 +57,18 @@ public class Usuarios {
 		Correo = correo;
 	}
 
-	public String getContraseña() {
-		return Contraseña;
+	public String getcontrase�a() {
+		return contrase�a;
 	}
 
-	public void setContraseña(String contraseña) {
-		Contraseña = contraseña;
+	public void setcontrase�a(String contrase�a) {
+		contrase�a = contrase�a;
 	}
 
 	@Override
 	public String toString() {
 		return "Usuarios [Nombre=" + Nombre + ", APaterno=" + APaterno + ", AMarterno=" + AMarterno + ", Correo="
-				+ Correo + ", Contraseña=" + Contraseña + "]";
+				+ Correo + ", Contraseña=" + contrase�a + "]";
 	}
 	
 	
