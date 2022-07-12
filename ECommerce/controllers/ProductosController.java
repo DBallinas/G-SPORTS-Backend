@@ -58,6 +58,7 @@ public class ProductosController {
 	}//addProduct
 
 	@PutMapping (path="{prodId}")
+<<<<<<< HEAD:E-Commerce/src/main/java/GSport/ECommerce/controllers/ProductosController.java
 	public Productos updateProducto(
 			@PathVariable("prodId")Long id,
 			@RequestParam(required=false)String idProducto,
@@ -73,6 +74,27 @@ public class ProductosController {
 	//@Request Para que no me pida a la de fuerza todos los parametros. 
 			{
 		return productoServicios.updateProducto(id, idProducto, idProveedores, idCategorias, NombreProducto, PrecioUnidad, UnidadesExistentes, Descripción, Marca, URL_Imagen);
+=======
+	public Productos updateProducto(@PathVariable("prodId")Long id,
+			@RequestParam(required=false) String nombre,
+			@RequestParam(required=false) String descripcion,
+			@RequestParam(required=false) String URL_imagen,
+			@RequestParam(required=false) Double precio,
+			@RequestParam(required=false) Double cantidad
+			//(required=false)String idProducto,
+			//(required=false)String idProveedores,
+			//(required=false)String idCategorias,
+			//(required=false)String NombreProducto,
+			//(required=false)double PrecioUnidad,
+			//(required=false)int UnidadesExistentes,
+			//(required=false)String Descripción,
+			//(required=false)String Marca,
+		
+			)
+	//@Request Para que no me pida a la de fuerza todos los parametros. 
+			{
+		return productoServicios.updateProducto(id, nombre, descripcion, URL_imagen, precio, cantidad);
+>>>>>>> joseluis:ECommerce/controllers/ProductosController.java
 			}
 	
 	
