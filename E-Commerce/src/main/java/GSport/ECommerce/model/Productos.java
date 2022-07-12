@@ -14,25 +14,7 @@ public class Productos {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="idproductos",unique=true,nullable=false)
 	private Long id;
-//	private Long id;
-//	//@Column(name="idproductos")
-//	private String idproductos;
-//	//@Column(name="idProveedores")
-//	private String idproveedores;
-//	//@Column(name="idCategorias")
-//	private String idCategorias;
-//	@Column(name="NombreProducto")
-//	private String NombreProducto; 
-//	@Column(name="PrecioUnidad")
-//	private double PrecioUnidad;
-//	@Column(name="UnidadesExistentes")
-//	private int UnidadesExistentes;
-//	@Column(name="Descripción")
-//	private String Descripción;
-//	@Column(name="marca")
-//	private String Marca;
-//	@Column(name="url_imagen")
-//	private String URL_Imagen;
+
 	
 		private String nombre; 
 		private String descripcion; 

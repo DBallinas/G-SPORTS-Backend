@@ -51,11 +51,11 @@ public class ProductoServicios {
 	public Productos addProducto(Productos producto)
 	{
 		Productos tmProducto=null;
-		Optional <Productos> prodByName=productosRepositorio.findByNombre(producto.getNombreProducto());
+		Optional <Productos> prodByName=productosRepositorio.findByNombre(producto.getNombre());
 		
 		if(prodByName.isPresent())
 		{
-			throw new IllegalArgumentException("El producto con el nombre ["+producto.getNombreProducto()+" ] ya existe");
+			throw new IllegalArgumentException("El producto con el nombre ["+producto.getNombre()+" ] ya existe");
 		}
 		else
 		{
@@ -65,23 +65,17 @@ public class ProductoServicios {
 		return tmProducto;
 	}//addProducto
 	
-	public Productos updateProducto(Long id, String idproductos, String idproveedores, String idcategoria, 
-									String nombreproducto, double preciounidad, int unidadesexistentes, String descripción, String marca,String url_imagen)
+	public Productos updateProducto(Long id, String nombre, String descripcion, String uRL_img, Double precio, Double cantidad)
 	{
 		Productos tmProducto=null;
 		if(productosRepositorio.existsById(id))
 		{
 			tmProducto=productosRepositorio.findById(id).get();
-			if(idproductos != null)tmProducto.setIdproductos(idproductos);
-			if(idproveedores !=null)tmProducto.setIdproveedores(idproveedores);
-			if(idcategoria!=null)tmProducto.setIdCategorias(idcategoria);
-			if(nombreproducto!=null)tmProducto.setNombreProducto(nombreproducto); 
-			//if(precio!=null)tmProducto.setPrecio(precio.doubleValue());
-			if(preciounidad<=0)tmProducto.setPrecioUnidad(preciounidad);
-			if(unidadesexistentes<=0)tmProducto.setUnidadesExistentes(unidadesexistentes);
-			if (descripción!=null)tmProducto.setDescripción(descripción);
-			if(marca!=null)tmProducto.setMarca(marca);
-			if(url_imagen!=null)tmProducto.setURL_Imagen(url_imagen);
+			if(nombre!=null)tmProducto.setNombre(nombre); 
+			if (descripcion!=null)tmProducto.setDescripcion(descripcion);
+			if(uRL_img!=null)tmProducto.setURL_imagen(uRL_img);
+			if(precio!=null)tmProducto.setPrecio(precio.doubleValue());
+			if(cantidad!=null)tmProducto.setCantidad(cantidad.doubleValue());
 		
 			productosRepositorio.save(tmProducto);
 		}

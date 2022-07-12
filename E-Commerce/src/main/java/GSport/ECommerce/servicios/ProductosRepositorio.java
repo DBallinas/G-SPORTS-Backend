@@ -1,3 +1,4 @@
+
 package GSport.ECommerce.servicios;
 
 import java.util.Optional;
@@ -9,7 +10,7 @@ import GSport.ECommerce.model.Productos;
 
 public interface ProductosRepositorio extends JpaRepository<Productos, Long>{
 	
-	@Query("SELECT p FROM Productos p WHERE p.NombreProducto=?1")
+	@Query("SELECT p FROM Productos p WHERE p.nombre=?1")
 	
 	Optional<Productos>findByNombre(String NombreProducto);
 
