@@ -24,7 +24,7 @@ public class Productos {
 		private double cantidad;
 		
 		
-		public Productos(Long id, String nombre, String descripcion, String uRL_imagen, double precio, int cantidad) {
+		public Productos(Long id, String nombre, String descripcion, String uRL_imagen, double precio, double cantidad) {
 			super();
 			this.id = id;
 			this.nombre = nombre;

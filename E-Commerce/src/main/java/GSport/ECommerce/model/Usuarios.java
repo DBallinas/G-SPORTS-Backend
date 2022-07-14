@@ -1,75 +1,107 @@
 package GSport.ECommerce.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="usuarios")
 public class Usuarios {
-	private String Nombre; 
-	private String APaterno;
-	private String AMarterno; 
-	private String Correo;
-	private String Contraseña;
 	
-	public Usuarios(String nombre, String aPaterno, String aMarterno, String correo,
-			String contraseña) {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="idusuarios",unique=true,nullable=false)
+	private Long id;
+	private String nombre; 
+	private String apaterno;
+	private String amarterno; 
+	private String email;
+	private String password;
+	
+	
+	public Usuarios(Long id, String nombre, String apaterno, String amarterno, String email, String password) {
 		super();
-		this.Nombre = nombre;
-		this.APaterno = aPaterno;
-		this.AMarterno = aMarterno;
-		this.Correo = correo;
-		this.Contraseña = contraseña;
+		this.id = id;
+		this.nombre = nombre;
+		this.apaterno = apaterno;
+		this.amarterno = amarterno;
+		this.email = email;
+		this.password = password;
 	}
-	public Usuarios(String correo,
-			String contraseña) {
-		super();
-		this.Correo = correo;
-		this.Contraseña = contraseña;
-	}
+
 	
 	public Usuarios() {}
 
-	public String getNombre() {
-		return Nombre;
+
+	public Long getId() {
+		return id;
 	}
+
+
+//	public void setId(Long id) {
+//		this.id = id;
+//	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
 
 	public void setNombre(String nombre) {
-		Nombre = nombre;
+		this.nombre = nombre;
 	}
 
-	public String getAPaterno() {
-		return APaterno;
+
+	public String getApaterno() {
+		return apaterno;
 	}
 
-	public void setAPaterno(String aPaterno) {
-		APaterno = aPaterno;
+
+	public void setApaterno(String apaterno) {
+		this.apaterno = apaterno;
 	}
 
-	public String getAMarterno() {
-		return AMarterno;
+
+	public String getAmarterno() {
+		return amarterno;
 	}
 
-	public void setAMarterno(String aMarterno) {
-		AMarterno = aMarterno;
+
+	public void setAmarterno(String amarterno) {
+		this.amarterno = amarterno;
 	}
 
-	public String getCorreo() {
-		return Correo;
+
+	public String getEmail() {
+		return email;
 	}
 
-	public void setCorreo(String correo) {
-		Correo = correo;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getContraseña() {
-		return Contraseña;
+
+	public String getPassword() {
+		return password;
 	}
 
-	public void setContraseña(String contraseña) {
-		Contraseña = contraseña;
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
+
 
 	@Override
 	public String toString() {
-		return "Usuarios [Nombre=" + Nombre + ", APaterno=" + APaterno + ", AMarterno=" + AMarterno + ", Correo="
-				+ Correo + ", Contraseña=" + Contraseña + "]";
-	}
+		return "Usuarios [id=" + id + ", nombre=" + nombre + ", apaterno=" + apaterno + ", amarterno=" + amarterno
+				+ ", email=" + email + ", password=" + password + "]";
+	}//toString
+
 	
 	
 

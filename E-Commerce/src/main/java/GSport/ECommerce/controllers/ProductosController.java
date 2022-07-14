@@ -19,7 +19,7 @@ import GSport.ECommerce.servicios.ProductoServicios;
 @RestController // importar este. 
 @RequestMapping (path="/api/productos/")
 
-//@CrossOrigin(origins="*")
+@CrossOrigin(origins="*")
 public class ProductosController {
 		
 		private final ProductoServicios productoServicios; 
