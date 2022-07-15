@@ -12,6 +12,7 @@ Nuestra misión es ser un elemento esencial para los clientes al dar el mejor se
 Nuestra visión es convertirnos en la compañía líder en e-commerce de su rama de más rápido crecimiento, en la que los clientes puedan encontrar y descubrir productos deportivos que quieran comprar en línea, mientras nos esforzamos en ofrecer a nuestros clientes los precios más bajos posibles. Creciendo primero de manera regional, para ir después de manera estatal, nacional e internacional.
 
 ## Equipo 4 
+
 Ballinas Vázquez David
 * https://www.linkedin.com/in/davidbvz/
 * https://github.com/DBallinas

@@ -1,8 +1,8 @@
 SELECT * FROM `g-sports`.productos;
 
-select * from categorias where idCategorias='Cat1';
+SELECT* FROM categorias WHERE idCategorias='Cat1';
 
-select NombreContacto from proveedores where NombreContacto='Francisco';
+SELECT NombreContacto FROM proveedores WHERE NombreContacto='Francisco';
 
 -- PRODUCTOS CALZADO --
 insert into Productos
@@ -15,6 +15,7 @@ insert into Productos
 VALUES ('PTenis4','PNike','Cat3','Tenis Mujer Nike Tanjun','1239','3','El cuello acolchado de corte low luce elegante y se siente genial.','Nike');
 insert into Productos
 VALUES ('PTenis5','PReebok','Cat3','Tenis Reebok Casual Rider V Negro','1119','8','Forro textil con capacidad de transpirar la humedad y que posee gran durabilidad.','Reebok');
+
 -- PRODUCTOS ACCESORIOS --
 insert into Productos
 VALUES ('PAcces1','PWilson','Cat1','Polainas Wilson 4lbs Unisex','459','10','Las Polainas Wilson tienen el peso extra para seguir fortaleciendo tus piernas y justo en los momentos de mayor intensidad.', 'Wilson');
@@ -26,6 +27,7 @@ insert into Productos
 VALUES ('PAcces4','PNike','Cat1','Muñequeras Nike 2.5 lbs Unisex','989','20','Las Muñequeras Nike 2.5 lbs incrementan la carga cuando quieres realizar ejercicios en los musculos superiores del cuerpo.','Nike');
 insert into Productos
 VALUES ('PAcces5','PNike','Cat1','Top Nike Swoosh','649','6','Tiene la comodidad para desempeñar tus entrenamientos de la parte superior con total ligereza para tu abdomen.','Nike');
+
 -- PRODUCTOS SUPLEMENTOS --
 insert into Productos
 VALUES ('PSupple1','PSascha','Cat5','Proteína Sascha Fitness','410','20','Proteína aislada de suero de leche hidrolizada, saborizantes naturales y artificiales.', 'Sascha');
@@ -37,6 +39,7 @@ insert into Productos
 VALUES ('PSupple4','PBeyond','Cat5','Multivitamínico Beyond','320','18','Diseñado específicamente para las mujeres, el multivitamínico para mujeres.','Beyond');
 insert into Productos
 VALUES ('PSupple5','PDextro','Cat5','Suplemento deportivo Dextro Energy','650','40','Pastillas efervescentes para preparar bebida de electrolitos con gran sabor, una excelente alternativa para hidratarte.','Dextro');
+
 -- PRODUCTOS ROPA --
 insert into Productos
 VALUES ('PRopa1','PSportwear','Cat4','Conjunto Para Caballero Deportivo Sudadera Y Pants Sportwear','489','30','Material de poliéster ligero y de calidad cómoda con un diseño elegante.', 'Sportwear');
@@ -48,6 +51,7 @@ insert into Productos
 VALUES ('PRopa4','PSpandex','Cat4','Mangas Protectoras Para Brazos Protección Solar Uv 3 Pares','139','30','Manga deportiva anti-ultravioleta de lycra con protección solar.','Spandex');
 insert into Productos
 VALUES ('PRopa5','PSpandex','Cat4','Playera Deportiva Gimnasio Spandex Ajuste Perfecto Camiseta','184','30','Spandex/ Elástica para un Ajuste Perfecto.','Spandex');
+
 -- PRODUCTOS APARATOS--
 insert into Productos
 VALUES ('PApara1','PWeider','Cat2','Rueda Para Ejercicios Abdominales De Ejercicios 6 Piezas','530','15','Perfecto para principiantes y deportistas avanzados.', 'Weider');
